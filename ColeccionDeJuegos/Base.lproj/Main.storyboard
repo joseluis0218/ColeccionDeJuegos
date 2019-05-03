@@ -14,11 +14,23 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColeccionDeJuegos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="ColeccionDeJuegos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jiz-9a-n86">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jiz-9a-n86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lq3-MP-WsP"/>
+                            <constraint firstItem="Jiz-9a-n86" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RPm-9s-Vnl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jiz-9a-n86" secondAttribute="bottom" id="Who-0l-sMa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jiz-9a-n86" secondAttribute="trailing" id="vMr-hG-fVa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="vAL-NW-Jpf">
@@ -28,15 +40,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Jiz-9a-n86" id="j08-0j-bMo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="390" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Juego View Controller-->
         <scene sceneID="62m-sU-KZ9">
             <objects>
-                <viewController id="nJ7-vh-NSf" sceneMemberID="viewController">
+                <viewController id="nJ7-vh-NSf" customClass="JuegoViewController" customModule="ColeccionDeJuegos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4N-jx-qEV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,20 +63,50 @@
                                     <constraint firstAttribute="height" constant="150" id="zsA-mw-D2M"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titulo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-QV-9Pt">
+                                <rect key="frame" x="47.5" y="254" width="280" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7f-Kq-dyF">
+                                <rect key="frame" x="159.5" y="304" width="55" height="30"/>
+                                <state key="normal" title="Agregar"/>
+                                <connections>
+                                    <action selector="agregarTapped:" destination="nJ7-vh-NSf" eventType="touchUpInside" id="0eC-5h-YZx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tYh-QV-9Pt" firstAttribute="centerX" secondItem="b4N-jx-qEV" secondAttribute="centerX" id="5EJ-2o-fC2"/>
+                            <constraint firstItem="U7f-Kq-dyF" firstAttribute="top" secondItem="tYh-QV-9Pt" secondAttribute="bottom" constant="20" id="9eb-z2-oBZ"/>
                             <constraint firstItem="dMk-mC-IUD" firstAttribute="centerX" secondItem="b4N-jx-qEV" secondAttribute="centerX" id="E3l-It-DTK"/>
+                            <constraint firstItem="tYh-QV-9Pt" firstAttribute="width" secondItem="dMk-mC-IUD" secondAttribute="width" id="HSv-PV-iFP"/>
+                            <constraint firstItem="tYh-QV-9Pt" firstAttribute="top" secondItem="dMk-mC-IUD" secondAttribute="bottom" constant="20" id="TqX-xF-5s5"/>
+                            <constraint firstItem="U7f-Kq-dyF" firstAttribute="centerX" secondItem="b4N-jx-qEV" secondAttribute="centerX" id="cbg-yH-8Oh"/>
                             <constraint firstItem="dMk-mC-IUD" firstAttribute="top" secondItem="Hwx-Eh-pUC" secondAttribute="top" constant="20" id="nWo-Sb-rTu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hwx-Eh-pUC"/>
                     </view>
                     <navigationItem key="navigationItem" id="0vC-vC-L32">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="MNN-Ym-xOy"/>
-                            <barButtonItem title="Fotos" id="t9P-7q-sux"/>
+                            <barButtonItem systemItem="camera" id="MNN-Ym-xOy">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="nJ7-vh-NSf" id="jj3-sv-wvN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Fotos" id="t9P-7q-sux">
+                                <connections>
+                                    <action selector="fotosTapped:" destination="nJ7-vh-NSf" id="PhQ-qq-A4O"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="juegoImageView" destination="dMk-mC-IUD" id="4yD-AE-1cL"/>
+                        <outlet property="tituloTextField" destination="tYh-QV-9Pt" id="ZtN-a3-eug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElJ-uQ-O7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
